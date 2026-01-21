@@ -26,7 +26,7 @@ Randy L. Parrish, Aron S. Buchman, Shinya Tasaki, Yanling Wang, Denis Avey, Jish
 
 ## Directories and Files
 
-```R
+```
 .
 ├── README.md
 ├── analysis
