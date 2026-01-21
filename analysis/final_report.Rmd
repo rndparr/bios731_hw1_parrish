@@ -1,0 +1,94 @@
+---
+title: ""
+author: "Randy Parrish"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    code_folding: hide
+    toc: true
+    toc_float: true
+params:
+  state: "nc"
+  download_raw_data: FALSE
+hitheme: tomorrow
+highlighter: highlight.js
+---
+
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(ggrepel)
+library(here)
+
+knitr::opts_chunk$set(echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 9,
+  fig.height = 6,
+  fig.path = "../results/"
+)
+
+theme_set(theme_bw() + theme(legend.position = "bottom"))
+
+# significance threshold
+sig_level <- 2.5e-6
+
+# label these genes in the results
+labeled_genes <- c('MMRN1','MAPK8IP1P2','GPNMB','MAPT','PLEKHN1','PRR26')
+```
+
+
+## Overview
+
+
+
+
+
+## Clean data 
+
+
+
+```{r}
+# Run the file 01_data_cleaning.R
+source(here("source", "01_data_cleaning.R")) 
+```
+
+
+## Analyze data
+
+
+
+```{r}
+# Run the file 02_data_analysis.R
+source(here("source", "02_data_analysis.R"))
+```
+
+```{r}
+# display data as knitr table
+knitr::kable(twas_table, digits = c(rep(0,6), 5))
+```
+
+
+
+
+
+# Visualize data
+
+
+
+```{r}
+# Run the file 03_data_visualization.R
+source(here("source", "03_data_visualization.R"))
+```
+
+
+```{r, figure1}
+# Plot the data
+mplot
+```
+
+
+# Session Info
+```{r}
+sessionInfo()
+```
